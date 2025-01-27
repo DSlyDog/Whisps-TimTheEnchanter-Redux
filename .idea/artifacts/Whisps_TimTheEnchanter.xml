@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Whisps TimTheEnchanter">
+    <output-path>$PROJECT_DIR$/../Build/TimTheEnchanter</output-path>
+    <root id="archive" name="Whisps TimTheEnchanter.jar">
+      <element id="module-output" name="WhispsTimTheEnchanterRedux" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,15 @@
+name: WhispsTimTheEnchanterRedux
+version: ${project.version}
+main: net.whispwriting.whispsTimTheEnchanterRedux.WhispsTimTheEnchanterRedux
+api-version: '1.21'
+
+commands:
+
+  enchant:
+    description: enchant an item
+    usage: /enchant
+
+permissions:
+  TimTheEnchanter.enchant:
+    description: enchant an item
+    default: op
