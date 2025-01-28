@@ -6,7 +6,7 @@
 
     <groupId>net.whispwriting</groupId>
     <artifactId>WhispsTimTheEnchanterRedux</artifactId>
-    <version>1.0</version>
+    <version>0.3.5</version>
     <packaging>jar</packaging>
 
     <name>WhispsTimTheEnchanterRedux</name>

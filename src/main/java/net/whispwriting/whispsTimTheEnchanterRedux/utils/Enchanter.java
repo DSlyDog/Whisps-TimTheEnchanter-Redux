@@ -1,9 +1,12 @@
 package net.whispwriting.whispsTimTheEnchanterRedux.utils;
 
+import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.*;
 
@@ -37,6 +40,8 @@ public class Enchanter {
         else
             item.addEnchantment(enchantment, level);
 
+        item = fancify(item);
+
         return new Result(item, getQuote());
     }
 
@@ -48,6 +53,8 @@ public class Enchanter {
                 item.addEnchantment(enchantment, level);
         }
 
+        item = fancify(item);
+
         return new Result(item, getQuote());
     }
 
@@ -55,6 +62,33 @@ public class Enchanter {
         Random random = new Random();
         int index = random.nextInt(timQuotes.size());
         return timQuotes.get(index);
+    }
+
+    private ItemStack fancify(ItemStack item){
+        List<String> lore = new ArrayList<>();
+        ItemMeta meta = item.getItemMeta();
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+        for (Map.Entry<Enchantment, Integer> enchantment : meta.getEnchants().entrySet()){
+            String name = enchantment.getKey().getKey().getKey();
+            if (name.contains("curse")){
+                String[] segments = name.split("_");
+                name = segments[1] + " of " + segments[0];
+
+                lore.add(ChatColor.RED + Formatter.enchantmentFormat(name));
+            }
+            else
+                lore.add(
+                    ChatColor.GRAY +
+                    Formatter.enchantmentFormat(name.replace("_", " ")) +
+                    " " +
+                    Formatter.toRoman(enchantment.getValue()));
+        }
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        return item;
     }
 
     public static Enchanter getInstance(){
