@@ -4,15 +4,13 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.*;
 
 public class Enchanter {
 
     private static Enchanter instance;
-    List<String> timQuotes = new ArrayList<String>();
-    List<String> articles;
+    List<String> timQuotes = new ArrayList<>();
 
     private Enchanter(){
         timQuotes.add("I... am an enchanter. ");
@@ -24,8 +22,6 @@ public class Enchanter {
         timQuotes.add("Behold the cave of Caerbannog! ");
         timQuotes.add("That's the most foul, cruel, and bad-tempered rodent you ever set eyes on! Look, that rabbit's got a vicious streak a mile wide! It's a killer!");
         timQuotes.add("I warned you, but did you listen to me? Oh, no, you knew it all, didn't you? Oh, it's just a harmless little bunny, isn't it? Well, it's always the same. I always tell them-- ");
-
-        articles = Arrays.asList("a", "an", "the");
     }
 
     public Result enchant(ItemStack item, int level, String name, boolean unsafe){
